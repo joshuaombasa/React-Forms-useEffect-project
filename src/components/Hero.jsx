@@ -8,13 +8,26 @@ export default function Hero() {
         }
     )
 
-    function handleChange() {
+    function handleChange(event) {
+        const {name, value} = event.target
+        setFormData((prevformData) => {
+            return {
+                ...prevformData,
+                [name] : value
+            }
+        })
+    }
 
+    
+
+    function submitForm(event) {
+        event.preventDefault()
+        console.log(formData)
     }
 
     return (
         <section className="hero">
-            <form action="" className="meme--from">
+            <form onSubmit={submitForm} className="meme--from">
                 <div className="inputs-container">
                     <input
                         className="text--input"

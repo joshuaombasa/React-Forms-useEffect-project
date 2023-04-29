@@ -46,7 +46,10 @@ export default function Hero() {
                 </div>
                 <button className="get--meme-btn">Get new meme image</button>
             </form>
-            <section className="img-display-area"></section>
+            <section className="img-display-area">
+                <h2 className="top--text">{formData.topText}</h2>
+                <h2 className="bottom--text">{formData.bottomText}</h2>
+            </section>
         </section>
     )
 }

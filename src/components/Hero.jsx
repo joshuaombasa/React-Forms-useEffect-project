@@ -9,9 +9,6 @@ export default function Hero() {
         }
     )
 
-    function getRandomImage() {
-        
-    }
 
     const [memesData, setmemesData] = React.useState([])
 
@@ -21,7 +18,14 @@ export default function Hero() {
            .then(data => setmemesData(data.data.memes))
     },[])
 
-    console.log(memesData)
+    function getRandomImage() {
+        const randomNumber = Math.floor(Math.random() * memesData.length)
+        const randomUrl = memesData[randomNumber].url
+        
+        setFormData(prevformData => {
+
+        })
+    }
 
     function handleChange(event) {
         const {name, value} = event.target
@@ -37,7 +41,6 @@ export default function Hero() {
 
     function submitForm(event) {
         event.preventDefault()
-        console.log(formData)
     }
 
     return (
@@ -59,7 +62,7 @@ export default function Hero() {
                         value={formData.bottomText}
                     />
                 </div>
-                <button className="get--meme-btn">Get new meme image</button>
+                <button className="get--meme-btn" onClick={getRandomImage}>Get new meme image</button>
             </form>
             <section className="img-display-area">
                 <img className="meme--image" src={formData.randomImage} alt="" />

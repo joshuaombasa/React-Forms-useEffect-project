@@ -9,6 +9,20 @@ export default function Hero() {
         }
     )
 
+    function getRandomImage() {
+        
+    }
+
+    const [memesData, setmemesData] = React.useState([])
+
+    React.useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+           .then(res => res.json())
+           .then(data => setmemesData(data.data.memes))
+    },[])
+
+    console.log(memesData)
+
     function handleChange(event) {
         const {name, value} = event.target
         setFormData((prevformData) => {

@@ -21,9 +21,12 @@ export default function Hero() {
     function getRandomImage() {
         const randomNumber = Math.floor(Math.random() * memesData.length)
         const randomUrl = memesData[randomNumber].url
-        
-        setFormData(prevformData => {
 
+        setFormData(prevformData => {
+            return {
+                ...prevformData,
+                randomImage: randomUrl
+            }
         })
     }
 

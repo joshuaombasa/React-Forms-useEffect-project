@@ -4,7 +4,8 @@ export default function Hero() {
     const [formData, setFormData] = React.useState(
         {
             topText: '',
-            bottomText: ''
+            bottomText: '',
+            randomImage: "http://i.imgflip.com/1bij.jpg" 
         }
     )
 
@@ -47,6 +48,7 @@ export default function Hero() {
                 <button className="get--meme-btn">Get new meme image</button>
             </form>
             <section className="img-display-area">
+                <img className="meme--image" src={formData.randomImage} alt="" />
                 <h2 className="top--text">{formData.topText}</h2>
                 <h2 className="bottom--text">{formData.bottomText}</h2>
             </section>
